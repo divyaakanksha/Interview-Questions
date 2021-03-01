@@ -1,0 +1,16 @@
+Array.prototype.maps = function(callback){
+
+console.log(this)
+	var newArr = [];
+  for(var i=0;i<this.length;i++) {
+  	newArr.push(callback(this[i]))
+  }
+	return newArr;
+}
+
+const array3 = [11, 4, 19, 16];
+
+// pass a function to map
+const map3 = array3.maps(x => x * 2);
+
+console.log(map3)
