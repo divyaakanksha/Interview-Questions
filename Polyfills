@@ -1,0 +1,43 @@
+Array.prototype.maps = function(callback) {
+	var newArr = [];
+  for(var i=0;i<this.length;i++) {
+  	newArr.push(callback(this[i]))
+  }
+	return newArr;
+}
+
+const array1 = [11, 4, 19, 16];
+
+// pass a function to map
+const map1 = array1.maps(x => x * 2);
+
+console.log(map1)
+
+Array.prototype.eachs = function(callback) {
+	var newArr = [];
+  for(var i=0;i<this.length;i++) {
+  	newArr.push(callback(this[i]))
+  }
+	return newArr;
+}
+
+// pass a function to map
+const map2 = array1.eachs(x => console.log(x));
+
+console.log(map2)
+
+Array.prototype.finds = function(callback) {
+	var newArr = [];
+  for(var i=0;i<this.length;i++) {
+  	if(callback(this[i])) {
+    	newArr.push(this[i]);
+      break;
+    }
+  }
+	return newArr;
+}
+
+const found = array1.finds(element => element > 10);
+
+console.log(found)
+
