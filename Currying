@@ -1,0 +1,23 @@
+function add(x){
+    let sum = x;
+    function resultFn(y){
+        sum += y;
+        return resultFn;
+    }
+    resultFn.valueOf = function(){
+            return sum;
+        };
+    return resultFn;
+}
+
+
+console.log(add(2)(3)) //output: 10
+console.log(add(2)(3)(4)==9) //output: true
+console.log(add(3)(4)(5).valueOf()) //output: 12
+
+function adds(args) {
+	console.log(args);
+  return true;
+}
+
+adds(2,3)
