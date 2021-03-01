@@ -1,0 +1,14 @@
+function reverseStr(input){
+	let s = input.toString();
+  
+ 	let output='';
+  	if(isNaN(s[0])) {
+    	output += s[0];
+      output += parseInt((s.split('').splice(1,s.length)).reverse().join(''));
+    } else {
+    
+    }
+  return output;
+}
+
+console.log(reverseStr(-8766))
