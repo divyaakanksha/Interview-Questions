@@ -1,0 +1,27 @@
+function Animal(name) {
+	this.name = name;
+}
+
+function Mammal(name, canWalk) {
+	Animal.call(this, name);
+	this.canWalk = canWalk;
+}
+
+Mammal.prototype = Object.create(Animal.prototype);
+Mammal.prototype.constructor = Mammal;
+
+function Dog(name, canWalk, canRun) {
+	Mammal.call(this, name, canWalk);
+  this.canRun = canRun;
+}
+
+Dog.prototype = Object.create(Mammal.prototype);
+Dog.prototype.constructor = Dog;
+
+var m = new Mammal('test', true);
+
+console.log(m)
+
+var d = new Dog('test', false, true);
+
+console.log(d)
