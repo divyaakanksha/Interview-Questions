@@ -1,0 +1,66 @@
+acctData = [{
+    "acctNum": "A1234",
+    "user": "Alice",
+    "openDate": "4/5/89"
+  },
+  {
+    "acctNum": "A5231",
+    "user": "Bob",
+    "openDate": "4/5/11"
+  },
+  {
+    "acctNum": "A9921",
+    "user": "Alice",
+    "openDate": "4/5/19"
+  },
+  {
+    "acctNum": "A8191",
+    "user": "Alice",
+    "openDate": "4/5/19"
+  }
+];
+
+balance = {
+  "A1234": 4593.22,
+  "A9921": 0,
+  "A5231": 232142.5,
+  "A8191": 4344
+};
+
+function fetchAccNos(user, sortCriteria, sortDirection) {
+
+  acctData.forEach(data => {
+    data.balance = balance[data.acctNum];
+  });
+
+  let resultArr = acctData, result = [];
+
+  if (user) {
+    resultArr = acctData.filter(data => {
+      return data.user.toLowerCase() === user.toLowerCase();
+    });
+  }
+
+  if (sortCriteria) {
+    let direction = (sortDirection === 'asc' || sortDirection === 'desc') ? sortDirection : 'asc';
+    resultArr.sort(sortBy(sortCriteria, direction));
+  }
+  
+  for (let i = 0; i < resultArr.length; i++) {
+      result.push(resultArr[i].acctNum);
+    }
+
+  return result;
+
+}
+
+function sortBy(prop, dir) {
+  return function(a, b) {
+    return a[prop] == b[prop] ? 0 : (dir == 'asc' ? (a[prop] < b[prop] ? -1 : 1) : (a[prop] > b[prop] ? -1 : 1))
+  }
+}
+
+console.log(fetchAccNos('Bob'));
+console.log(fetchAccNos('Charlie'));
+console.log(fetchAccNos(null, 'acctNum'));
+console.log(fetchAccNos('Alice', 'balance', 'desc'));
