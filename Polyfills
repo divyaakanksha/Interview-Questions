@@ -41,3 +41,16 @@ const found = array1.finds(element => element > 10);
 
 console.log(found)
 
+
+Array.prototype.myReduce = function(callback, initial) {
+
+    this.forEach(item => {
+        initial = initial !== undefined ? callback(initial, item) : item
+    })
+
+    return initial;
+}
+
+var values = [2, 5, 5]
+values.reduce((a, b) => a * b)  // 50
+values.myReduce((a, b) => a * b)  // 50
