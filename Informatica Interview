@@ -1,6 +1,14 @@
 setTimeout() causes the event to be ansynchronous therefore being executed after all the synchronous code, giving your element more time to load. 
 Asynchronous callbacks like the callback in setTimeout() are placed in the event queue and put on the stack by the event loop after the stack of synchronous code is empty.
 
+The event queue is responsible for sending new functions to the track for processing. 
+It follows the queue data structure to maintain the correct sequence in which all operations should be sent for execution. 
+Whenever an async function is called, it is sent to a browser API. These are APIs built into the browser.
+
+The Event Loop has one simple job — to monitor the Call Stack and the Callback Queue. 
+If the Call Stack is empty, the Event Loop will take the first event from the queue and will push it to the Call Stack, which effectively runs it. 
+Such an iteration is called a tick in the Event Loop
+
 for (var i = 1; i <= 3; i++) {
     (function(index) {
         setTimeout(function() { console.log(index); }, i * 1000);
