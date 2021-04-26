@@ -1,0 +1,29 @@
+setTimeout() causes the event to be ansynchronous therefore being executed after all the synchronous code, giving your element more time to load. 
+Asynchronous callbacks like the callback in setTimeout() are placed in the event queue and put on the stack by the event loop after the stack of synchronous code is empty.
+
+for (var i = 1; i <= 3; i++) {
+    (function(index) {
+        setTimeout(function() { console.log(index); }, i * 1000);
+    })(i);
+}
+
+Spread operator in ES6
+let numberStore = [0, 1, 2];
+let newNumber = 12;
+numberStore = [...numberStore, newNumber];
+
+https://medium.com/@DaphneWatson/anonymous-functions-and-iife-immediately-invoked-function-expressions-with-javascript-69d3f554fca2#:~:text=The%20function%20name%20is%20not,to%20as%20a%20function%20literal.&text=IIFE%20(known%20as%20Immediately%20Invoked,have%20a%20name%20as%20well.
+
+https://dzone.com/articles/easy-javascript-part-13-four-ways-to-create-object
+
+https://medium.com/javascript-everyday/javascript-theory-promise-vs-observable-d3087bc1239a
+
+https://javascript.info/async-await
+
+https://www.w3schools.com/css/css_specificity.asp
+
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of_Grid_Layout
+
+https://www.w3schools.com/css/tryit.asp?filename=trycss3_var
+
+https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
