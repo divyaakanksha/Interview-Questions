@@ -35,3 +35,41 @@ https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Relationship_of
 https://www.w3schools.com/css/tryit.asp?filename=trycss3_var
 
 https://css-tricks.com/quick-css-trick-how-to-center-an-object-exactly-in-the-center/
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+.test1 {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  position: absolute;
+  top:0;
+  right:0;
+  left:0;
+  bottom:0;
+  margin: auto;
+}
+
+.test {
+  width: 200px;
+  height: 200px;
+  border: 1px solid red;
+  position: fixed;
+  top:50%;
+  left:50%;
+  margin-top: -100px;
+  margin-left:-100px;
+  //transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+
+<div class="test"></div>
+
+</body>
+</html>
+
