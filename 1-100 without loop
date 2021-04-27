@@ -1,0 +1,10 @@
+var i = 1;
+main(i);
+function main(k) { 
+    if (k <= 100) { 
+        console.log(k);
+        k++;
+        main(k); //recursive function
+    } 
+    return 0; 
+} 
