@@ -1,0 +1,34 @@
+ function checkPalindrome(str) {
+  let l = 0,
+    split = str.toLowerCase().replace(/ /g, '').split(''),
+    r = split.length - 1,
+    temp;
+
+  while (l < r) {
+    if (!isAlphabet(split[l]))
+      l++;
+    else if (!isAlphabet(split[r]))
+      r--;
+    else {
+      var tmp = split[l];
+      split[l] = split[r];
+      split[r] = tmp;
+      l++;
+      r--;
+    }
+  }
+
+  if (split.join('') === str.toLowerCase().replace(/ /g, '')) {
+    return true;
+  }
+  return false;
+}
+
+function isAlphabet(char) {
+  if (char.charCodeAt(0) >= 97 && char.charCodeAt(0) <= 122) {
+    return true;
+  }
+  return false;
+}
+
+console.log(checkPalindrome("Madam, I'm Adam!"))
