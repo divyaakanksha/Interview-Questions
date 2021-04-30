@@ -2,11 +2,11 @@ function isRepeat(arr, key) {
   let count = 1;
   const countArray = [];
 
-  if (arr.indexOf(3) === -1) {
+  if (arr.indexOf(key) === -1) {
     return true;
   } else {
     const counts = arr.filter(item => {
-      return item === 3;
+      return item === key;
     });
 
     if (counts.length % 2 === 0) {
@@ -23,19 +23,20 @@ function isRepeat(arr, key) {
           }
         }
       });
-
-
-
       if (countArray.length) {
         return true;
       }
       return false;
-
     }
-
     return false;
   }
 }
+
+arr1 = [3,3,4,5,6] //true
+arr2 = [2,5,6,7,4] //true
+arr3 = [6,3,3,5,3,3,5] //true
+arr4 = [4,3,3,3,3,4] //true
+arr5 = [5,3,7] //false
 
 console.log(isRepeat(arr1, 3))
 console.log(isRepeat(arr2, 3))
