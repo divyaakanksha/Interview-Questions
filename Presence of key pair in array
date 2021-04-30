@@ -1,0 +1,44 @@
+function isRepeat(arr, key) {
+  let count = 1;
+  const countArray = [];
+
+  if (arr.indexOf(3) === -1) {
+    return true;
+  } else {
+    const counts = arr.filter(item => {
+      return item === 3;
+    });
+
+    if (counts.length % 2 === 0) {
+      arr.forEach((item, i) => {
+        if (arr[i] === key) {
+          if (arr[i + 1] !== undefined) {
+            if (arr[i + 1] === arr[i]) {
+              count += 1;
+              if (count === 2) {
+                countArray.push(1);
+                count = 1;
+              }
+            } 
+          }
+        }
+      });
+
+
+
+      if (countArray.length) {
+        return true;
+      }
+      return false;
+
+    }
+
+    return false;
+  }
+}
+
+console.log(isRepeat(arr1, 3))
+console.log(isRepeat(arr2, 3))
+console.log(isRepeat(arr3, 3))
+console.log(isRepeat(arr4, 3))
+console.log(isRepeat(arr5, 3))
