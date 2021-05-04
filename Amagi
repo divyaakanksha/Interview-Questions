@@ -1,0 +1,72 @@
+Promise.resolve('Success')
+  .then(() => {
+    throw Error('test');
+  })
+  .catch((error) => {
+    throw 'test1'
+  })
+  .then((data) => {
+    throw Error('test2');
+  })
+  .catch((error) => {
+    console.log(error.message)
+  })
+  
+  
+  
+  
+let nums = [1, 2, 3];
+
+function add(a, b, ...nums) {
+  const [, , ...arr] = nums;
+  let sum = parseInt(a + b);
+  arr.forEach(function(num) {
+    sum += num;
+  });
+  return parseInt(sum);
+}
+
+console.log(add(1, 2, ...nums));
+
+
+
+let a = 10;
+function outer() {
+  let b = 10;
+  console.log(a);
+  return function() {
+    a++;
+    b++;
+    console.log(b);
+  }
+}
+
+outer()();
+outer()();
+
+
+
+
+var val = "test";
+
+function bar() {
+  console.log(val);
+  var val = "test2";
+}
+bar();
+
+
+
+
+const obj = {
+  a: 1,
+  log1() {
+    console.log(this.a);
+  },
+  log2: () => {
+    console.log(this.a);
+  }
+}
+
+obj.log1();
+obj.log2();
