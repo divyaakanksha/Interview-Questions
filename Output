@@ -1,0 +1,76 @@
+5 > 4 > 3
+  5 > 4 -> true
+  true > 3 -> false
+  o/p : false
+------------------------------------------------
+
+if([]) {   console.log("test");     }
+  O/P: test
+  
+-----------------------------------------------
+  
+function test() {
+if(true) {
+var temp = 12;
+}
+console.log(temp);
+}
+
+O/P: 12
+
+----------------------------------------------
+
+function test() {
+if(true) {
+let temp = 12;
+}
+console.log(temp);
+}
+
+O/P: error temp is not defined
+
+-----------------------------------------------
+
+ES6 - check this about var vs let
+     var x = 10;
+// Now x is 10
+{ 
+    var x = 2;
+    // Now x is 2
+}
+// Now x is 2
+var x = 10;
+// Now x is 10
+{
+let x = 2;
+// Now x is 2
+}
+// Now x is 10
+The let statement allows you to declare a variable inside brackets {} scope.
+
+-----------------------------------------------------------
+
+
+Explain about the usage of 'this'
+When used in a function, this refers to the Global object
+check ="global";
+function test() {
+   var check = 21;
+    return this.check;
+}
+test() -> global
+When used globally, this refers to window
+     var x = this -> Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+When used in object, this refers to containing object
+     var person = {
+    firstName: "John",
+    lastName : "Doe",
+    id       : 5566,
+    fullName : function() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+in the above this refers to person object
+person.fullName.call({firstName: "prasu", lastName: "reddy"}) -> "prasu reddy"
+
+---------------------------------------------------------
